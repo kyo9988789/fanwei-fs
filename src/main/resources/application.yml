@@ -1,0 +1,24 @@
+server:
+  port: 8075
+
+
+fanwei:
+  oa:
+    url: http://oa.qunje.com:88/services/WorkflowService?wsdl
+    targetNamespace: webservices.services.weaver.com.cn
+
+
+fs:
+  appId: FSAID_1319599
+  appSecret: 0d89f64d5e8548d0b6cb923f14c4f7c5
+  permanentCode: D99DBF885DCF101DCCC707042209DE23
+  token: 01705ddef3ac437c9ef5d32626b51208
+  encodingAesKey: YjBlOTAyMjIzMTJmNGVjOTkyNmE5MDEzZjM1NzE2Njc
+  authorize.url: www.fxiaoke.com
+
+
+logging:
+  level:
+    com:
+      qunje: DEBUG
+    root: INFO
