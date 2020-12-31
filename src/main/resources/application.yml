@@ -4,8 +4,9 @@ server:
 
 fanwei:
   oa:
-    url: http://oa.qunje.com:88/services/WorkflowService?wsdl
-    targetNamespace: webservices.services.weaver.com.cn
+    hrmUrl: http://oa.qunje.com:88/services/HrmService?wsdl
+    hrmTargetNamespace: http://localhost/services/HrmService
+
 
 
 fs:
@@ -17,8 +18,24 @@ fs:
   authorize.url: www.fxiaoke.com
 
 
+
+
 logging:
   level:
     com:
       qunje: DEBUG
     root: INFO
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oa_crm?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true

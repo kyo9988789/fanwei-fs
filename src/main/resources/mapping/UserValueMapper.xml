@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qunje.oacrmbridge.mysql.mapper.UserValueMapper">
+
+    <select id="findByCondition" parameterType="com.qunje.oacrmbridge.mysql.param.UserValueParam"
+            resultType="com.qunje.oacrmbridge.mysql.model.UserValue">
+        select * from user_value
+        <where>
+            <if test="condition.indocno != null">
+                and indocno = #{condition.indocno}
+            </if>
+            <if test="condition.userid != null">
+                and userid = #{condition.userid}
+            </if>
+            <if test="condition.openuserid != null and condition.openuserid != ''">
+                and openuserid = #{condition.openuserid}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertUser" parameterType="com.qunje.oacrmbridge.mysql.model.UserValue">
+        insert into user_value(indocno,userid,openuserid,usernm)
+        value (#{condition.indocno},#{condition.userid},#{condition.openuserid},#{condition.usernm})
+    </insert>
+
+    <update id="updUser" parameterType="com.qunje.oacrmbridge.mysql.model.UserValue">
+        update user_value set openuserid = #{condition.openuserid},usernm = #{condition.usernm} where userid = #{condition.userid}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from user_value where userid = #{condition.userid}
+    </delete>
+</mapper>
